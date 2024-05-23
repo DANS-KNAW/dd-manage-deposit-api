@@ -29,7 +29,7 @@
     <artifactId>dd-manage-deposit-api</artifactId>
     <version>0.1.0-SNAPSHOT</version>
 
-    <name>Dd Manage Deposit Api</name>
+    <name>DD Manage Deposit Api</name>
     <url>https://github.com/DANS-KNAW/dd-manage-deposit-api</url>
     <description>API of DD Manage Deposit</description>
     <inceptionYear>2024</inceptionYear>
