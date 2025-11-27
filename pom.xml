@@ -23,7 +23,7 @@
     <parent>
         <groupId>nl.knaw.dans</groupId>
         <artifactId>dd-parent</artifactId>
-        <version>1.9.0</version>
+        <version>1.10.0</version>
     </parent>
 
     <artifactId>dd-manage-deposit-api</artifactId>
@@ -38,10 +38,6 @@
         <developerConnection>scm:git:ssh://github.com/DANS-KNAW/dd-manage-deposit-api</developerConnection>
         <tag>HEAD</tag>
     </scm>
-
-    <properties>
-        <dans-build-resources-maven-plugin.version>0.8.0</dans-build-resources-maven-plugin.version>
-    </properties>
 
     <build>
         <resources>
