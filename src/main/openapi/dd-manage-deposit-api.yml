@@ -43,6 +43,130 @@ paths:
                 description: a plain text, human readable description of the service
                 example: |
                   Manage Deposit API Running (v${project.version})
+    post:
+      summary: Create a new deposit properties record.
+      requestBody:
+        description: Deposit properties to be created.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DepositProperties'
+      responses:
+        200:
+          description: The created deposit properties.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DepositProperties'
+        400:
+          description: Invalid deposit properties.
+
+  /report:
+    get:
+      summary: List deposit properties based on selection criteria.
+      parameters:
+        - name: user
+          in: query
+          schema:
+            type: string
+          description: Filter by depositor user ID.
+        - name: state
+          in: query
+          schema:
+            type: string
+            enum: [ ARCHIVED, DRAFT, FAILED, FINALIZING, INVALID, REJECTED, SUBMITTED, UPLOADED, PUBLISHED ]
+          description: Filter by deposit state.
+        - name: startdate
+          in: query
+          schema:
+            type: string
+            format: date
+          description: Filter by creation timestamp (after this date).
+        - name: enddate
+          in: query
+          schema:
+            type: string
+            format: date
+          description: Filter by creation timestamp (before this date).
+        - name: deleted
+          in: query
+          schema:
+            type: boolean
+          description: Filter by deleted flag.
+        - name: depositid
+          in: query
+          schema:
+            type: string
+          description: Filter by deposit ID.
+      responses:
+        200:
+          description: A list of deposit properties.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DepositProperties'
+            text/csv:
+              schema:
+                type: string
+        400:
+          description: Invalid request parameters.
+
+  /report/{depositId}:
+    get:
+      summary: Get deposit properties by ID.
+      parameters:
+        - name: depositId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The deposit ID.
+      responses:
+        200:
+          description: The deposit properties.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DepositProperties'
+        404:
+          description: Deposit properties not found.
+        400:
+          description: Invalid deposit ID.
 
 components:
-  # Reusable schemas
+  schemas:
+    DepositProperties:
+      type: object
+      required:
+        - depositor
+        - depositId
+        - bagName
+      properties:
+        depositor:
+          type: string
+        depositId:
+          type: string
+          format: uuid
+        bagName:
+          type: string
+        depositState:
+          type: string
+          enum: [ ARCHIVED, DRAFT, FAILED, FINALIZING, INVALID, REJECTED, SUBMITTED, UPLOADED, PUBLISHED ]
+        depositCreationTimestamp:
+          type: string
+          format: date-time
+        depositUpdateTimestamp:
+          type: string
+          format: date-time
+        description:
+          type: string
+        location:
+          type: string
+        storageInBytes:
+          type: integer
+          format: int64
+        deleted:
+          type: boolean
