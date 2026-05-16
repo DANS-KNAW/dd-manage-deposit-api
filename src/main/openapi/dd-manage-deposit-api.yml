@@ -43,6 +43,7 @@ paths:
                 description: a plain text, human readable description of the service
                 example: |
                   Manage Deposit API Running (v${project.version})
+  /report:
     post:
       summary: Create a new deposit properties record.
       requestBody:
@@ -61,8 +62,6 @@ paths:
                 $ref: '#/components/schemas/DepositProperties'
         400:
           description: Invalid deposit properties.
-
-  /report:
     get:
       summary: List deposit properties based on selection criteria.
       parameters:
