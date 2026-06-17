@@ -26,7 +26,7 @@
     </parent>
 
     <artifactId>dd-manage-deposit-api</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2-SNAPSHOT</version>
 
     <name>DD Manage Deposit Api</name>
     <url>https://github.com/DANS-KNAW/dd-manage-deposit-api</url>
@@ -35,7 +35,7 @@
 
     <scm>
         <developerConnection>scm:git:ssh://github.com/DANS-KNAW/dd-manage-deposit-api</developerConnection>
-        <tag>v1.0.1</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <build>
