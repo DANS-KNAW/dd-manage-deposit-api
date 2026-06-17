@@ -32,6 +32,7 @@ info:
 paths:
   /:
     get:
+      operationId: rootGet
       summary: Returns a description of the service.
       responses:
         200:
@@ -45,6 +46,7 @@ paths:
                   Manage Deposit API Running (v${project.version})
   /report:
     post:
+      operationId: reportPost
       summary: Create a new deposit properties record.
       requestBody:
         description: Deposit properties to be created.
@@ -63,6 +65,7 @@ paths:
         400:
           description: Invalid deposit properties.
     get:
+      operationId: reportGet
       summary: List deposit properties based on selection criteria.
       parameters:
         - name: user
@@ -115,6 +118,7 @@ paths:
 
   /report/{depositId}:
     get:
+      operationId: reportDepositIdGet
       summary: Get deposit properties by ID.
       parameters:
         - name: depositId
