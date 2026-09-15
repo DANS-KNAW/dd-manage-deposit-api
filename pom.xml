@@ -30,7 +30,7 @@
 
     <name>DD Manage Deposit Api</name>
     <description>API of DD Manage Deposit</description>
-    <url>https://github.com/DANS-KNAW/dd-manage-deposit-api</url>
+    <url>https://dans-knaw.github.io/dd-manage-deposit-api</url>
     <inceptionYear>2024</inceptionYear>
 
     <scm>
